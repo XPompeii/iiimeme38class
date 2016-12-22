@@ -1,0 +1,41 @@
+#include<stdio.h>
+int binaryWhile(int *l, int key, int length){
+	int mid=length/2;
+	do{
+		if(l[mid]==key) return(mid);
+		else if(l[mid]<key) mid=(mid+length)/2;
+		else if(l[mid]<key) mid=mid/2;
+		else return(-1);
+	}while(1);
+}
+int inputSort(int list[], int length){
+	static int i=0,tmp;
+	if(i==length){
+		if(length>0) return(inputSort(list,length--));
+		else return(* list);
+	}else if(list[i]>=list[i+1]){
+		tmp=list[i];
+		list[i]=list[i+1];
+		list[i+1]=tmp;
+		i++;
+		return(inputSort(list,length));
+	}else{ 	
+		i++;
+		return(inputSort(list,length));
+	}
+}
+int main(void){
+	int a[100]={0},i=0,length,b,c;
+	int *l=a;
+	printf("plz input some numbers(press q to quit input):");
+	do{
+		scanf("%d",&a[i]);
+		i++;
+	}while(b!='q'||i<100);
+	length=i-1;
+	if(binaryWhile((** inputSort(a,length)),c,length)==-1) printf("ERROR!\n");
+	else printf("%d\n",a[binaryWhile((** inputSort(a,length)),c,length)]);
+	return 0;
+}
+
+
