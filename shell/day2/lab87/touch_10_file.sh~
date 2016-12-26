@@ -1,0 +1,6 @@
+#!bin/bash
+#for var in $(echo "{0..10}")
+#do
+#    `echo "1A;2B;3C;4D;5E" > $var.html`
+#done
+echo "{0..10}" | echo "1A;2B;3C;4D;5E" > $($0).htm
